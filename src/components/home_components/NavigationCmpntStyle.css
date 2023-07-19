@@ -1,0 +1,43 @@
+.navigation-btn-group{
+  margin-top: 4vh;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+
+       
+       
+        
+    }
+#nav-btn{
+ 
+  text-align: center;
+  align-content: center;
+  height: 120px;
+  width: 120px;
+  /* padding: 3.5%; */
+  box-sizing: border-box;
+  border-radius:40px 40px 40px 40px;
+ 
+ background-image: url('../../asserts/Medical.png');
+ padding-top: 45px;
+font-size: 20px;
+color: white;
+@media (max-width : 1000px) {
+    
+ height: 60px;
+ width: 60px;
+ border-radius:50%;
+ font-size: 10px;
+ box-sizing: border-box;
+ padding-top: 15px;
+ background-image: url('https://www.hdnicewallpapers.com/Walls/Big/Food%20and%20Drinks/Small_Food_Dish.jpg');
+
+
+  
+}
+   
+}
+
+.navigation-btn-group .selected{
+  border: 4px solid rgb(35, 172, 240);
+}

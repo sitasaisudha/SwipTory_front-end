@@ -1,0 +1,48 @@
+.your_stories{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    @media (max-width : 1000px) {
+    
+        flex-direction: column;
+        justify-content: center;
+        
+      }
+}
+.your-carousel-wrapper{
+    height: 400px;
+    width: 300px;
+    box-sizing: border-box;
+    background-color: green;
+    margin-right: 3vh;
+    @media (max-width : 1000px) {
+    
+       margin-bottom: 20px;
+        
+      }
+}
+.your-slide-wrapper img{
+    height: 400px;
+    width: 300px;
+}
+
+.your-slide-wrapper{
+    height: 400px;
+   
+}
+.your-slide-content{
+    position: absolute;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 100%;
+  color: white;
+
+}
+.edit-btn{
+   background-color: white;
+   color: black;
+   
+
+}

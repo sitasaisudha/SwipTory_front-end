@@ -1,0 +1,82 @@
+
+.addSlidemodal{
+    height: 68%;
+    width: 45%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   background-color: white;
+   
+   margin-left: 25%;
+   margin-right: 25%;
+  margin-top: 10%;
+   margin-bottom: 15%;
+   border-radius: 30px;
+
+    color: black;
+   
+}
+.slide-btns{
+    padding: 4% 6%;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid white;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.slide-btns.active {
+    border: 2px solid blue;
+    /* Add any other styles you want for the active slide button */
+  }
+.slide-button-group{
+    display: flex;
+    /* padding: 6% 0%; */
+    padding-top: 6%;
+    padding-bottom: 4%;
+    justify-content: space-around;
+}
+.close-button{
+    float: right;
+    
+    background: none;
+    border: none;
+    font-size: 4vh;
+}
+.slide-para{
+    float: right;
+}
+.slide-form{
+   
+    padding: 0% 20%;
+  
+    display: flex;
+    flex-direction: column;
+   
+}
+
+input,textarea,select{
+    margin-left: 16%;
+    padding: 2% 8%;
+}
+textarea{
+    padding: 4% 8%;
+}
+.form-buttons button{
+    padding: 2% 5%;
+    border-radius: 25px;
+    border: none;
+}
+.post-btn{
+    float: right;
+    background-color: #FF7373;
+}
+.next-btn{
+    background-color: #73ABFF;
+}
+.prev-btn{
+    background-color: #7EFF73;
+}
+.addSlidemodal button{
+    color: black;
+}
