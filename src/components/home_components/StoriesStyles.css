@@ -1,0 +1,181 @@
+.slide-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Adjust the gap between stories */
+  justify-items: center;
+  /* background-color: antiquewhite; */
+ 
+}
+
+.carousel-wrapper {
+  margin: 10px;
+}
+
+.custom-carousel {
+  width: 300px;
+  height: 500px;
+  margin-right: 100px;
+  
+}
+.custom-carousel .control-arrow {
+  display: none;
+}
+
+
+
+
+.slide-wrapper {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.slide-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: white;
+  color: white;
+}
+
+.slide-overlay h3,
+.slide-overlay p {
+  margin: 0;
+}
+
+.slide-modal {
+  width: 300px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
+}
+
+.slide-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-carousel {
+  width: 500px;
+  height: 500px;
+}
+
+
+
+.modal-carousel .control-arrow{
+  display: none;
+}
+/* SlideComponent.css */
+/* .slide-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+} */
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.slide-top-content {
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* padding: 20px; */
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.slide-top-content .close-buttons{
+  float: right ;
+  width: 5px;
+  height: 10px;
+  background: none;
+  border: none;
+  /* color: red; */
+
+
+}
+.slide-top-content .send-buttons{
+  background: none;
+  border: none;
+}
+
+
+
+.slide-content h3,
+.slide-content p {
+  margin: 0;
+}
+
+.slide-content h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.slide-content p {
+  font-size: 16px;
+}
+ 
+/* SlideComponent.css */
+
+
+/* .carousel-indicator {
+  display: flex;
+ 
+  flex-direction: row;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: gray;
+ 
+  transition: background-color 0.3s ;
+  
+} */
+.carousel-indicator.active{
+  background-color: white;
+}
+.carousel-indicator{
+  justify-content: center;
+  background-color: red;
+}
+
+.bookmark-button.filled{
+  color: blue;
+
+}
+.carousel-arrow{
+  
+}

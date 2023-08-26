@@ -1,41 +1,113 @@
 
 .addSlidemodal{
-    height: 68%;
-    width: 45%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-   background-color: white;
    
-   margin-left: 25%;
-   margin-right: 25%;
-  margin-top: 10%;
+   
+    height: auto;
+    
+    width: 60%;
+    margin-top: 10%;
    margin-bottom: 15%;
-   border-radius: 30px;
+   border-radius: 5vh;
+   box-sizing: border-box;
 
     color: black;
-   
+    @media (max-width : 1000px) {
+      
+        margin-top: 5%;
+       height: 70% ;
+        width: 70%;
+      }
+      background-color: white;
+     
 }
-.slide-btns{
-    padding: 4% 6%;
-    border-radius: 15px;
-    background-color: white;
-    border: 1px solid white;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+.slide-btn-container{
+    display: flex;
+    flex-direction: column;
+    @media (max-width : 1000px) {
+        margin-top: 10vh;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
 }
-.slide-btns.active {
-    border: 2px solid blue;
-    /* Add any other styles you want for the active slide button */
-  }
 .slide-button-group{
     display: flex;
-    /* padding: 6% 0%; */
     padding-top: 6%;
     padding-bottom: 4%;
+    margin-left: 28%;
     justify-content: space-around;
+    @media (max-width : 1000px) {
+     margin: 0;
+     display: flex;
+     
+     flex-direction: column;
+    justify-content: space-between;
+   padding-top: 0;
+
+    }
 }
+.slide-button-group.aftr{
+    margin-left: 40%;
+    @media (max-width : 1000px) {
+        margin: 0;
+        display: flex;
+        
+        flex-direction: column;
+       justify-content: space-between;
+      padding-top: 0;
+   
+       }
+
+}
+
+.slide-btns{
+    height: 8vh;
+    width: 50vw;
+    border-radius: 7%;
+    background-color: white;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; 
+   box-sizing: border-box;
+
+    @media (max-width : 1000px) {
+       height: 8vh;
+       width: 7vw;
+      border-radius: 3%;
+     
+     
+      font-size: 10px;
+    
+
+        }
+        text-align: center; 
+       
+
+}  
+
+.slide-button-group.aftr .slide-btns{
+   
+    @media (max-width : 1000px) {
+        height: 5vh;
+        width: 7vw;
+       border-radius: 3%;
+      
+      
+       font-size: 10px;
+     
+ 
+         }
+}
+
+.slide-btns b{
+    text-align: center;
+
+}
+
+.slide-btns.active {
+    border: 2px solid blue;
+   
+  }
+
+
 .close-button{
     float: right;
     
@@ -45,38 +117,120 @@
 }
 .slide-para{
     float: right;
+
+  
 }
 .slide-form{
    
+   width: 80%;
     padding: 0% 20%;
-  
     display: flex;
     flex-direction: column;
+    @media (max-width : 1000px) {
+        width: 60%;
+      padding: 0% 12%;
+            
+           } 
    
+}
+.slide-form td{
+    width: 40vw;
+    text-align: left;
 }
 
 input,textarea,select{
-    margin-left: 16%;
-    padding: 2% 8%;
+    padding: 2% 30%;
+    @media (max-width : 1000px) {
+    width: 100%;
+       }
+       @media (max-width : 600px) {
+     
+        padding: 2% 12%;
+          }
+        
+
 }
-textarea{
-    padding: 4% 8%;
+option{
+    padding: 0 50%;
+}
+
+.form-buttons{
+   margin-top: 5%;
+   margin-bottom: 3%;
+   padding: 0% 10%;
+   @media (max-width : 1200px) {
+  
+   margin-top: 0vh;
+   margin-bottom: 3%;
+       }
+    @media (max-width : 1000px) {
+        margin-top: 0vh;
+        margin-bottom: 3%;
+           }
+     @media (max-width : 760px) {
+     display: flex;
+     padding: 0% 0%;
+     justify-content: center;
+     margin-bottom: 3%;
+        
+           }       
+
+
 }
 .form-buttons button{
-    padding: 2% 5%;
+   /* height: 5vh;
+   width: 10vw;
     border-radius: 25px;
     border: none;
+
+   
+
+    @media (max-width : 1000px) {
+        height: 5vh;
+        width: 15vw;
+           }
+     @media (max-width : 900px) {
+            height: 6vh;
+            width: 15vw;
+               }       
+
+    @media (max-width : 700px) {
+     
+        height: 5vh;
+        width: 30vw;
+      
+            } */
+            height: auto;
+            width: auto;
 }
 .post-btn{
     float: right;
     background-color: #FF7373;
+  
 }
 .next-btn{
     background-color: #73ABFF;
+    @media (max-width : 700px) {
+     
+      height: 0;
+      width: 0;
+      display: none;
+          }
+
 }
 .prev-btn{
     background-color: #7EFF73;
+    @media (max-width : 700px) {
+     
+        height: 0;
+        width: 0;
+        display: none;
+            }
 }
 .addSlidemodal button{
     color: black;
+}
+.formic-comp{
+    display: flex;
+    flex-direction: column;
 }

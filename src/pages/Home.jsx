@@ -15,7 +15,7 @@ const Home = () => {
            {isDesktopOrLaptop ?<Navbar />:""}
             
       {isTabletOrMobile ?<MobileNavbar/>:""}
-            {/* <h1> hi sudha don't worry</h1> */}
+          
             <SignIn/>
             <SlideEditor/>
             <NavigationComponent/>

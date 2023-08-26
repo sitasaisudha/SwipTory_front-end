@@ -2,27 +2,59 @@ import axios from 'axios';
 import React from 'react';
 import Modal from 'react-modal';
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { MyContext } from '../MyContext';
 import './BookMarkStyles.css';
 // import './CarouselStyles.css';
+import baseUrl from './../constants/Base'
 
 const Bookmarks = () => {
-  const [books, SetBooks] = useState([]);
+  const [bookList, SetBooksList] = useState([]);
   const [bookSlides, setBookSlides] = useState([]);
   const [selectedSlide, setSelectedSlide] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [share, setShare] = useState(false)
+  const { user_id, setUser_id} = useContext(MyContext); 
+  const headers = { token: localStorage.getItem("token") };
 
   useEffect(() => {
+    console.log("user id :",user_id)
     axios
-      .get(`http://localhost:4000/api/bookmarks`)
+      .get(`http://localhost:4000/api/bookmarksSlides/?userId=${user_id}`,
+      { headers: headers })
       .then((res) => {
-        setBookSlides(res.data);
-        console.log(res.data);
+        // setBookSlides(res.data);
+      SetBooksList(res.data);
+
       })
       .catch((err) => console.log(err));
       setShare(false)
   }, []);
+  useEffect(() => {
+    const fetchSlideDetails = async () => {
+      try {
+        const slidesData = await Promise.all(
+          bookList.map(async slideId => {
+            const response = await axios.get(`http://localhost:4000/api/slideinfo/?id=${slideId}`);
+            return response.data;
+          })
+        );
+        setBookSlides(slidesData);
+      } catch (error) {
+        console.error('Error fetching slide details:', error);
+      }
+    };
+    console.log(bookSlides)
+    fetchSlideDetails();
+  //  booksList.map((book)=>{
+  //   axios
+  //     .get(`http://localhost:4000/api/slideinfo/?id=${book}`)
+  //     .then((res)=> setBookSlides() )
+  //     .catch((err)=> console.log(err))
+  //  })
+  }, [bookList]);
+
 
   const handleSlideClick = (slide, index) => {
     setSelectedSlide(slide);
@@ -52,7 +84,7 @@ const Bookmarks = () => {
 
   return (
     <div>
-      <h1>Your bookmarks here</h1>
+      <h1 style={{textAlign:'center'}} >Your bookmarks here</h1>
       <div className="book-mark-grp">
         {bookSlides.map((slide, index) => (
           <div key={slide.id} className="book-slide-wrapper" onClick={() => handleSlideClick(slide, index)}>
@@ -66,7 +98,7 @@ const Bookmarks = () => {
       </div>
 
       {/* React Modal for Carousel */}
-      <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} className='book-modal' >
+      <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} className='book-modal' overlayClassName="slide-modal-overlay" >
         <div className="book-carousel">
           <div className="book-carousel-slide">
             <img src={selectedSlide && selectedSlide.image_url} alt={selectedSlide && selectedSlide.heading} />
@@ -86,12 +118,7 @@ const Bookmarks = () => {
             </div>
           </div>
          <div className="carousel-btns">
-         <button className="carousel-btn" onClick={handlePrevSlide}>
-            &#8249;
-          </button>
-          <button className="carousel-btn" onClick={handleNextSlide}>
-            &#8250;
-          </button>
+        
          </div>
          
         </div>

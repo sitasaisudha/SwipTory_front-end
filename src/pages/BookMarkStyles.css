@@ -4,37 +4,76 @@
 
 
 .book-mark-grp {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px; /* Adjust the gap between stories */
+  justify-items: center;
+  row-gap: 5vh;
+  @media (max-width : 1000px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-lef: 50%; */
+  }
 }
 
 .book-slide-wrapper {
-  border: 1px solid #ccc;
+ 
   border-radius: 4px;
-  padding: 10px;
+  padding: 0px;
   margin: 10px;
-  width: 250px;
+  height: 70vh;
+  width: 20vw;
   cursor: pointer;
-  height: 400px ;
+  @media (max-width : 1000px) {
+    border:1px solid black;
+     width: 300px;
+     height: 500px;
+     /* margin-left: 10px;
+     margin-right: 10px;
+     margin-bottom: 30px ; */
+     
+     
+   }
+   
+ 
 }
 
 .book-slide-wrapper img {
-  width: 100%;
-  height: 400px ;
+  height: 70vh;
+  width: 20vw;
   border-radius: 4px;
+  @media (max-width : 1000px) {
+    border:1px solid black;
+     width: 300px;
+     height: 500px;
+     /* margin-left: 10px; */
+     /* margin-right: 10px; */
+     /* margin-bottom: 30px ; */
+     
+     
+   }
+   
 }
 
 .book-slide-content {
   position: relative;
- /* top: 0; */
- bottom: 95px;
- height: 80px;
+ bottom: 110px;
+
+ height: 100px;
   width: 100%;
   text-align: center;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
+  @media (max-width : 1000px) {
+
+
+     
+     
+   } 
+  
+   
  
 }
 
@@ -45,31 +84,70 @@
   text-align: center;
   width: 100%;
   color: white;
+  @media (max-width : 1000px) {
+    display: none;
+     
+     
+   }
+  
+
 }
 
 /* React Modal Styles */
 .book-modal {
   position: absolute;
+ height: 70vh;
+  width: 20vw;
+  background-color: pink;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
+ 
+    
+   
+ 
+ 
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  @media (max-width : 1000px) {
+    /* display: none; */
+    position: fix;
+   top: 50%;
+  
+   right: 100%;
+  
+   
+   
+     
+     
+   }
+   
 }
 
 .book-carousel {
   position: relative;
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
+ 
+  @media (max-width : 1000px) {
+    height: 500px;
+    width: 300px;
+   
+  }
 }
 
 .book-carousel-slide {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  @media (max-width : 1000px) {
+    height: 500px;
+    width: 300px;
+   
+  }
 
  
 
@@ -77,9 +155,14 @@
 
 .book-carousel-slide img {
   width: 100%;
-  height: 500px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  height: 100%;
+  @media (max-width : 1000px) {
+    height: 100%;
+    width: 100%;
+   
+  }
+ 
+ 
 }
 
 .carousel-btns {
