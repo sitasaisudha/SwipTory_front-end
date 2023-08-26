@@ -1,3 +1,5 @@
+// to Edit the slide
+
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./SlideFormStyles.css";
@@ -9,7 +11,6 @@ import { useContext } from "react"; //using context api
 import { useMediaQuery } from "react-responsive";
 
 import baseUrl from '../constants/Base'
-// import SlideEditEditor from "./components/home_components/EditSlides";
 Modal.setAppElement("#root");
 const showToastSuccessMessage = () => {
   toast.success("Ediited Successfully !", {

@@ -27,7 +27,7 @@ const Your_stories = () => {
   const [share, setShare] = useState(false);
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/yourStories/?name=${name}`, { headers: headers })
+      .get(`${baseUrl}/api/yourStories/?name=${name}`, { headers: headers })
       .then((res) => {
         setYour_stories(res.data);
       })

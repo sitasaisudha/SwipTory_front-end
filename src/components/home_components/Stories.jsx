@@ -1,3 +1,5 @@
+// displaying the stories and slides based on categories
+
 import React, { useEffect, useState, useContext } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -35,7 +37,7 @@ const Stories = ({ category }) => {
     const getUSerId = async ()=>{
       console.log('hi')
       try {
-        const response = await axios.get(`http://localhost:4000/api/user_id?name=${name}`);
+        const response = await axios.get(`${baseUrl}/api/user_id?name=${name}`);
         setUser_id(response.data);
         console.log(response.data, name); // This will log the updated user_id
       } catch (err) {
@@ -119,7 +121,7 @@ const Stories = ({ category }) => {
         setBookmarkedSlides([...bookmarkedSlides, slideId]);
       }
 
-      const response = await axios.post(`http://localhost:4000/api/bookmarks`, {
+      const response = await axios.post(`${baseUrl}/api/bookmarks`, {
         userId: user_id,
         slideId: slideId
       },  { headers: headers }
@@ -354,7 +356,7 @@ const LikeButton = ({ slide, user_id }) => {
 
       // Update the liked state and like count on the server side
       // You need to send an API request to update the server data
-      axios.post(`http://localhost:4000/api/likes`, {
+      axios.post(`${baseUrl}/api/likes`, {
         userId: user_id,
         slideId: slide._id,
         liked: newLikedState,

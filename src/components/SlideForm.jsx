@@ -1,3 +1,5 @@
+// Adding slides
+
 import React, { useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
@@ -8,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useMediaQuery } from "react-responsive";
 import baseUrl from '../constants/Base'
-// Set the app element for the modal
+
 Modal.setAppElement("#root");
 const showToastSuccessMessage = () => {
   toast.success("Added Successfully !", {
@@ -243,7 +245,7 @@ const SlideEditor = () => {
             handleCloseModal()
           }
         }}
-          // disabled={postSlideCount <= 3}
+        
         
         >
           <i className="ri-close-circle-line"></i>
@@ -253,9 +255,7 @@ const SlideEditor = () => {
         <div className="slide-btn-container">
              <div className = {`slide-button-group ${slides.length>4 ?'aftr':""}`}>
           {slides.map((_, index) => (
-            // <button key={index} onClick={() => {goToSlide(index)  } }  className='slide-btns' >
-            //   {index + 1}
-            // </button>
+          
             <button
               key={index}
               style={{alignContent:'center'}}

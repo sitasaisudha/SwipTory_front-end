@@ -1,3 +1,5 @@
+// Fetching the bookmarked slides
+
 import axios from 'axios';
 import React from 'react';
 import Modal from 'react-modal';
@@ -5,7 +7,6 @@ import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { MyContext } from '../MyContext';
 import './BookMarkStyles.css';
-// import './CarouselStyles.css';
 import baseUrl from './../constants/Base'
 
 const Bookmarks = () => {
@@ -21,7 +22,7 @@ const Bookmarks = () => {
   useEffect(() => {
     console.log("user id :",user_id)
     axios
-      .get(`http://localhost:4000/api/bookmarksSlides/?userId=${user_id}`,
+      .get(`${baseUrl}/api/bookmarksSlides/?userId=${user_id}`,
       { headers: headers })
       .then((res) => {
         // setBookSlides(res.data);
@@ -36,7 +37,7 @@ const Bookmarks = () => {
       try {
         const slidesData = await Promise.all(
           bookList.map(async slideId => {
-            const response = await axios.get(`http://localhost:4000/api/slideinfo/?id=${slideId}`);
+            const response = await axios.get(`${baseUrl}/api/slideinfo/?id=${slideId}`);
             return response.data;
           })
         );
@@ -47,12 +48,7 @@ const Bookmarks = () => {
     };
     console.log(bookSlides)
     fetchSlideDetails();
-  //  booksList.map((book)=>{
-  //   axios
-  //     .get(`http://localhost:4000/api/slideinfo/?id=${book}`)
-  //     .then((res)=> setBookSlides() )
-  //     .catch((err)=> console.log(err))
-  //  })
+  
   }, [bookList]);
 
 
