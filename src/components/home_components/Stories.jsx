@@ -71,9 +71,7 @@ const Stories = ({ category }) => {
     localStorage.setItem("bookmarkedSlides", JSON.stringify(bookmarkedSlides));
   }, [bookmarkedSlides]);
 
-  
-
-
+  // groupin the slides 
   const groupedSlides = {};
   slides.forEach((slide) => {
     const { story_id } = slide;
@@ -84,7 +82,7 @@ const Stories = ({ category }) => {
   });
   const [selectedSlides, setSelectedSlides] = useState([]);
  
-  // Inside your handleShareClick function
+// when user click to share the story 
   const handleShareClick = (id) => {
     
     let link = window.location.href + `carousel`;
@@ -99,9 +97,8 @@ const Stories = ({ category }) => {
     setSelectedSlideIndex(0);
     setIsModalOpen(true);
   };
-  
-  
-
+   
+// to close the modal 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSlides([]);
@@ -113,7 +110,7 @@ const Stories = ({ category }) => {
    
   const [share, setShare] = useState(false);
 
-
+  // to manage the bookmarks
   const handleBookmarkToggle = async (slideId) => {
    if(!name){
     setText(true);
@@ -152,9 +149,8 @@ const Stories = ({ category }) => {
   };
 
   
-  // const [cnt, setCnt] = useState(0); // to allow user to only like once
  
-
+  // to go to previous slide
   const handlePreviousSlide = () => {
     setShare(false);
     if (selectedSlideIndex > 0) {
@@ -177,6 +173,7 @@ const Stories = ({ category }) => {
     setLikeCount(selectedSlides[selectedSlideIndex].likes);
   };
 
+  // to go to next slide
   const handleNextSlide = () => {
     setShare(false);
     if (selectedSlideIndex < selectedSlides.length - 1) {
@@ -197,9 +194,8 @@ const Stories = ({ category }) => {
 
      
     }
-    console.log(selectedSlides[selectedSlideIndex].likes)
-  
-    setLikeCount(selectedSlides[selectedSlideIndex].likes);
+   
+   
   };
   const handleSlideChange = (index) => {
     setSelectedSlideIndex(index);
@@ -211,20 +207,14 @@ const Stories = ({ category }) => {
         key={index}
         className={`custom-indicator ${selectedSlideIndex === index ? 'active' : ''}`}
         style={{
-          
-         
-          height: '5px',    // Height of the lines
-          // backgroundColor: selectedSlideIndex === index ? '#FFFFFF' : '#D9D9D9', // Color of lines and active line
-         
-        
-
+          height: '5px'
         }}
         onClick={() => handleSlideChange(index)}
       />
     ));
   };
 
-
+  
   const renderCarousel = () => {
     return (
     <div> 
@@ -240,7 +230,7 @@ const Stories = ({ category }) => {
         renderArrowPrev={(onClickHandler, hasPrev) => (
           <button
             className="carousel-arrow carousel-arrow-prev"
-            onClick={handlePreviousSlide}
+            onClick={()=>{onClickHandler();handlePreviousSlide()}}
           >
             <i className="ri-arrow-left-s-line"></i>
           </button>
@@ -248,7 +238,7 @@ const Stories = ({ category }) => {
         renderArrowNext={(onClickHandler, hasNext) => (
           <button
             className="carousel-arrow carousel-arrow-next"
-            onClick={handleNextSlide }
+            onClick={()=>{handleNextSlide();onClickHandler()} }
           >
          
             <i className="ri-arrow-right-s-line"></i>
@@ -335,7 +325,7 @@ const Stories = ({ category }) => {
          <div
             key={slides[0].story_id}
            
-            className="slide-wrapper"
+            className="home-slide-wrapper"
             onClick={() => handleSlideClick(slides)}
           >
             <img src={slides[0].image_url} alt="image " />

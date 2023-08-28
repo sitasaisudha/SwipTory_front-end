@@ -27,7 +27,7 @@
   .share-custom-indicators-container .active{
     background-color: white;
   }
-  .modal-your-carousel-wrapper{
+  .share-modal-your-carousel-wrapper{
     height: 500px;
     width: 300px;
     box-sizing: border-box;
@@ -41,7 +41,7 @@
 
 }
 
-.modal-your-slide-wrapper img{
+/* .modal-your-slide-wrapper img{
     height: 500px;
     width: 300px;
-}
+} */

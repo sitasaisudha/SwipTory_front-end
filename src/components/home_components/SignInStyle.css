@@ -1,16 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;500&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap');
 .modal{
-    
-    /* background-color: pink; */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     height: auto;
-    /* width: 50%; */
     background-color: rgba(0, 0, 0, 0.3);
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -36,7 +32,6 @@
      }
 }
 .float-into-icon{
-    /* float: right; */
     text-align: right;
     color: red;
     font-size: 3vh;

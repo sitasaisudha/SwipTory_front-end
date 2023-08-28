@@ -14,7 +14,6 @@ const Navbar = () => {
   const { modalIsOpen, setModalIsOpen } = useContext(MyContext); // to display modal for adding a story
   const [logout, setLogout] = useState(false);
   const name = localStorage.getItem("name");
-  //    const isLogin = localStorage.getItem("name")
   const { isLogIn, setLogin } = useContext(MyContext);
   const { storyId, setStoryId } = useContext(MyContext);
   const headers = { token: localStorage.getItem("token") };

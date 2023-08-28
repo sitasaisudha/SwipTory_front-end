@@ -6,7 +6,6 @@ import { MyContext } from "../../MyContext"; // importing my context to use cont
 import { useContext } from "react"; //using context api
 import { useState } from "react"; // importing use state hook
 import axios from "axios"; // importing axios
-// import { toast } from 'react-toastify';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import baseUrl from '.././../constants/Base'

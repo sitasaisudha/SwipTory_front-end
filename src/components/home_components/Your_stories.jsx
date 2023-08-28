@@ -21,11 +21,12 @@ const Your_stories = () => {
   const [selectedStorySlides, setSelectedStorySlides] = useState([]);
   const name = localStorage.getItem("name");
   const [error, setError] = useState(null);
-
   const [edit_id, setEdit_id] = useState(0);
   const headers = { token: localStorage.getItem("token") };
   const [share, setShare] = useState(false);
+
   useEffect(() => {
+    // to fetch the your stories 
     axios
       .get(`${baseUrl}/api/yourStories/?name=${name}`, { headers: headers })
       .then((res) => {

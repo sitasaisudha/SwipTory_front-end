@@ -1,3 +1,5 @@
+// when shared a story it appers in this page
+
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import baseUrl from ".././../constants/Base";
@@ -51,29 +53,14 @@ const SharedSlidesPage = () => {
       
       setSelectedSlideIndex(0);
     
-
+    
      
     }
     
   
   };
  
-  const renderCustomIndicators = () => {
-    return shareStory.map((_, index) => (
-      <div
-        key={index}
-        className={`share-custom-indicator ${selectedSlideIndex === index ? 'active' : ''}`}
-        style={{
-          
-         width:'50px',
-          height: '5px',    // Height of the lines
-        
-        
-        }}
-       
-      />
-    ));
-  };
+
  
 
   return (
@@ -86,17 +73,17 @@ const SharedSlidesPage = () => {
 
       >
         <div className ='modal-share'> 
-        <div className="share-custom-indicators-container">{renderCustomIndicators()}</div>
+        
         <Carousel
          
           showThumbs={false}
           showStatus={false}
           showArrows={true}
-          className="modal-your-carousel-wrapper"
+          className="share-modal-your-carousel-wrapper"
           renderArrowPrev={(onClickHandler, hasPrev, label) =>
              (
               <button
-                onClick={()=>handlePreviousSlide()}
+              onClick={onClickHandler}
                 title={label}
                 className="carousel-arrow carousel-arrow-prev"
               >
@@ -107,7 +94,8 @@ const SharedSlidesPage = () => {
           renderArrowNext={(onClickHandler, hasNext, label) =>
             (
               <button
-                onClick={()=>handleNextSlide()}
+                // onClick={()=>handleNextSlide()}
+                onClick={onClickHandler}
                 title={label}
                 className="carousel-arrow carousel-arrow-next"
               >
