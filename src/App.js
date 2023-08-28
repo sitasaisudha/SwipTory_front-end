@@ -51,7 +51,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
-          <Route path="/sharedSlidesPage" element={<SharedSlidesPage/>} />
+          <Route path="/carousel" element={<SharedSlidesPage/>} />
         </Routes>
       </MyContext.Provider>
   

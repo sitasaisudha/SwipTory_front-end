@@ -11,6 +11,8 @@ import SignIn from "./SignIn";
 import { MyContext } from "../../MyContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CustomControlDots from "./CustomControlDots";
+
 const name = localStorage.getItem('name')
 Modal.setAppElement("#root");
 
@@ -29,8 +31,8 @@ const Stories = ({ category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
   const [likeCount, setLikeCount] = useState(0);
-  const [likes, setLikes] = useState(false);
-  // const [likesInfo, setLikesInfo] = useState([]);
+
+ 
   
   useEffect(() => {
 
@@ -83,10 +85,12 @@ const Stories = ({ category }) => {
   const [selectedSlides, setSelectedSlides] = useState([]);
  
   // Inside your handleShareClick function
-  const handleShareClick = () => {
+  const handleShareClick = (id) => {
     
-    const sharedLink = `${window.location.origin}/sharedSlidesPage?storyId=${selectedSlides[0].story_id}`;
-    navigator.clipboard.writeText(sharedLink);
+    let link = window.location.href + `carousel`;
+    localStorage.setItem("id", id);
+    navigator.clipboard.writeText(link)
+
     setShare(true);
   };
 
@@ -111,7 +115,10 @@ const Stories = ({ category }) => {
 
 
   const handleBookmarkToggle = async (slideId) => {
-   
+   if(!name){
+    setText(true);
+   }
+   else{
     try {
       const isCurrentlyBookmarked = bookmarkedSlides.includes(slideId);
       if (isCurrentlyBookmarked) {
@@ -140,6 +147,8 @@ const Stories = ({ category }) => {
     } catch (error) {
       console.error('Error toggling bookmark:', error);
     }
+   }
+    
   };
 
   
@@ -192,16 +201,42 @@ const Stories = ({ category }) => {
   
     setLikeCount(selectedSlides[selectedSlideIndex].likes);
   };
+  const handleSlideChange = (index) => {
+    setSelectedSlideIndex(index);
+  };
 
-  
+  const renderCustomIndicators = () => {
+    return selectedSlides.map((_, index) => (
+      <div
+        key={index}
+        className={`custom-indicator ${selectedSlideIndex === index ? 'active' : ''}`}
+        style={{
+          
+         
+          height: '5px',    // Height of the lines
+          // backgroundColor: selectedSlideIndex === index ? '#FFFFFF' : '#D9D9D9', // Color of lines and active line
+         
+        
+
+        }}
+        onClick={() => handleSlideChange(index)}
+      />
+    ));
+  };
+
 
   const renderCarousel = () => {
     return (
+    <div> 
+        <div className="custom-indicators-container">{renderCustomIndicators()}</div>
+  
       <Carousel
+      className="carousel"
         selectedItem={selectedSlideIndex}
         showThumbs={false}
         showStatus={false}
         showArrows={true}
+        renderIndicator={()=>null}
         renderArrowPrev={(onClickHandler, hasPrev) => (
           <button
             className="carousel-arrow carousel-arrow-prev"
@@ -213,7 +248,7 @@ const Stories = ({ category }) => {
         renderArrowNext={(onClickHandler, hasNext) => (
           <button
             className="carousel-arrow carousel-arrow-next"
-            onClick={handleNextSlide}
+            onClick={handleNextSlide }
           >
          
             <i className="ri-arrow-right-s-line"></i>
@@ -223,7 +258,9 @@ const Stories = ({ category }) => {
       >
         {selectedSlides.map((slide) => (
           <div key={slide.id} className="mod-slide-wrapper">
+            
             <img src={slide.image_url} alt={slide.heading} />
+          
             <div className="slide-top-content">
               <button className="close-buttons" onClick={handleCloseModal}>
                 x
@@ -231,7 +268,7 @@ const Stories = ({ category }) => {
               <button
                 className="send-buttons"
                 onClick={() => {
-                 handleShareClick();
+                 handleShareClick(slide.story_id);
                 }}
               >
                 <i className="ri-send-plane-fill"></i>
@@ -262,6 +299,10 @@ const Stories = ({ category }) => {
           </div>
         ))}
       </Carousel>
+      </div>
+      
+    
+     
     );
   };
 
@@ -282,13 +323,14 @@ const Stories = ({ category }) => {
   return (
     <div className="slide-container">
       {Object.values(groupedSlides).slice(0, visibleStories).map((slides, index) => (
-        
+        <div>
         <Carousel
           key={index}
           showThumbs={false}
           showIndicators={false}
           interval={0}
           className="custom-carousel"
+        
         >
          <div
             key={slides[0].story_id}
@@ -305,8 +347,9 @@ const Stories = ({ category }) => {
          
          
         </Carousel>
-        
-      
+       
+     
+      </div>
 
           
       ))}
@@ -328,6 +371,7 @@ const Stories = ({ category }) => {
           Close Modal
         </button>
       </Modal>
+      
       <SignIn />
       <ToastContainer />
     </div>
@@ -353,9 +397,6 @@ const LikeButton = ({ slide, user_id }) => {
       // Update the liked state and like count on the client side
       setLiked(newLikedState);
       setLikeCount(newLikeCount);
-
-      // Update the liked state and like count on the server side
-      // You need to send an API request to update the server data
       axios.post(`${baseUrl}/api/likes`, {
         userId: user_id,
         slideId: slide._id,

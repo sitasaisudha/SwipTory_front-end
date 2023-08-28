@@ -316,3 +316,26 @@
  
  
 }
+
+
+.custom-indicators-container{
+  
+  display: flex;
+  width: 100%;
+  
+  justify-content: center;
+  /* background-color: #FF7373; */
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.custom-indicators-container .custom-indicator{
+  width: 48vw;
+ 
+  transition: 0.3s;
+  cursor: pointer;
+  margin-right:2px ;
+
+}
+.custom-indicators-container .active{
+  background-color: white;
+}
