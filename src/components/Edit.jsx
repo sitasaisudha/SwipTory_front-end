@@ -10,7 +10,7 @@ import { MyContext } from "../MyContext";
 import { useContext } from "react"; //using context api
 import { useMediaQuery } from "react-responsive";
 
-import baseUrl from '../constants/Base'
+import baseUrl from "../constants/Base";
 Modal.setAppElement("#root");
 const showToastSuccessMessage = () => {
   toast.success("Ediited Successfully !", {
@@ -26,11 +26,10 @@ const SlideEdit = ({ index, slide, values, updateSlide, initialValues }) => {
     updateSlide(index, { ...values, [name]: value });
   };
 
-  
-
   return (
     <div className="slide-form">
-     {isDesktopOrLaptop?( <table style={{ border: "none" }}>
+      {isDesktopOrLaptop ? (
+        <table style={{ border: "none" }}>
           <thead></thead>
           <tbody>
             <tr>
@@ -89,7 +88,9 @@ const SlideEdit = ({ index, slide, values, updateSlide, initialValues }) => {
               </td>
             </tr>
           </tbody>
-        </table>):(<div className="formic-comp">
+        </table>
+      ) : (
+        <div className="formic-comp">
           <label>
             Heading:
             <input
@@ -133,10 +134,8 @@ const SlideEdit = ({ index, slide, values, updateSlide, initialValues }) => {
               <option value="sports">Plants</option>
             </select>
           </label>
-        </div>)}
-    
-       
-    
+        </div>
+      )}
     </div>
   );
 };
@@ -195,7 +194,7 @@ const SlideEditor = (props) => {
 
   const handlePostSlide = () => {
     const currentValues = slides[currentSlide];
-   
+
     axios
       .patch(`${baseUrl}/api/edit-products`, {
         _id: currentValues._id,
@@ -214,7 +213,6 @@ const SlideEditor = (props) => {
 
   return (
     <div className="models">
-    
       <Modal
         className="addSlidemodal"
         overlayClassName="slide-modal-overlay"
@@ -229,33 +227,35 @@ const SlideEditor = (props) => {
         <br />
         <p className="slide-para">Edit the slides</p>
         <div className="slide-btn-container">
-        <div className="slide-button-group">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`slide-btns ${activeSlide === index ? "active" : ""}`}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-        <div>
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              style={{ display: index === currentSlide ? "block" : "none" }}
-            >
-              <SlideEdit
-                index={index}
-                slide={slide}
-                values={slide} // Pass the form values as prop
-                updateSlide={updateSlide}
-                initialValues={slide}
-              />
-            </div>
-          ))}
-        </div>
+          <div className="slide-button-group">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`slide-btns ${
+                  activeSlide === index ? "active" : ""
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+          <div>
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                style={{ display: index === currentSlide ? "block" : "none" }}
+              >
+                <SlideEdit
+                  index={index}
+                  slide={slide}
+                  values={slide} // Pass the form values as prop
+                  updateSlide={updateSlide}
+                  initialValues={slide}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <br />

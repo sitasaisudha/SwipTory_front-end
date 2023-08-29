@@ -7,7 +7,7 @@ import "./NavigationCmpntStyle.css";
 const NavigationComponent = () => {
   const categories = ["food", "sports", "news", "plants"];
   const { isLogIn, setLogin } = useContext(MyContext);
-  const name = localStorage.getItem('name');
+  const name = localStorage.getItem("name");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleCategoryClick = (category) => {
@@ -17,31 +17,33 @@ const NavigationComponent = () => {
   return (
     <div>
       <div className="navigation-btn-group">
-     <div className="scrollable-outer">
-      <div className="scrollable-inner">
+        <div className="scrollable-outer">
+          <div className="scrollable-inner">
+            <div
+              id="nav-btn1"
+              onClick={() => handleCategoryClick("All")}
+              className={
+                selectedCategory === "All" ? "selected" : "not-selected"
+              }
+            >
+              All
+            </div>
 
-        <div
-          id="nav-btn1"
-          onClick={() => handleCategoryClick("All")}
-          className={selectedCategory === "All" ? "selected" : "not-selected"}
-        >
-          All
-        </div>
-     
-       
-        {categories.map((category, index) => (
-          <div
-          id= {`nav-btn${index+2}`}
-            key={index + 2}  // Avoid duplicate IDs with "nav-btn1"
-            onClick={() => handleCategoryClick(category)}
-            className={selectedCategory === category ? "selected" : "not-selected"}
-          >
-            {category}
+            {categories.map((category, index) => (
+              <div
+                id={`nav-btn${index + 2}`}
+                key={index + 2} // Avoid duplicate IDs with "nav-btn1"
+                onClick={() => handleCategoryClick(category)}
+                className={
+                  selectedCategory === category ? "selected" : "not-selected"
+                }
+              >
+                {category}
+              </div>
+            ))}
           </div>
-        ))}
         </div>
-        </div>
-        </div>
+      </div>
 
       {name && selectedCategory === "All" && (
         <div>
@@ -59,8 +61,11 @@ const NavigationComponent = () => {
               style={{ height: "auto", marginTop: "20px" }}
               id={`section${index + 1}`}
             >
-              <br/>
-              <h3 style={{ textAlign: "center" }}> Top stories about {category}</h3>
+              <br />
+              <h3 style={{ textAlign: "center" }}>
+                {" "}
+                Top stories about {category}
+              </h3>
               <ErrorBoundary>
                 <Stories category={category} />
               </ErrorBoundary>
@@ -76,11 +81,11 @@ const NavigationComponent = () => {
           style={{
             display: selectedCategory === category ? "block" : "none",
             height: "auto",
-            marginTop: "20px"
+            marginTop: "20px",
           }}
           id={`section${index + 1}`}
         >
-          <br/>
+          <br />
           <h3 style={{ textAlign: "center" }}> Top stories about {category}</h3>
           {selectedCategory === category && (
             <ErrorBoundary>

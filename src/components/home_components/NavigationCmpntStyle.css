@@ -1,83 +1,72 @@
-.navigation-btn-group{
+.navigation-btn-group {
   margin-top: 4vh;
-     display: flex;
-     flex-direction: row;
-    margin-left: 1vw;
-    margin-right: 1vw;
-   
-    justify-content: space-evenly;
-  
-        
-       
-        
-    }
-.scrollable-outer{
- 
-    width: 100%;
-  
-  @media (max-width : 1000px) {
-    
+  display: flex;
+  flex-direction: row;
+  margin-left: 1vw;
+  margin-right: 1vw;
+
+  justify-content: space-evenly;
+}
+.scrollable-outer {
+  width: 100%;
+
+  @media (max-width: 1000px) {
     display: flex;
     overflow-x: auto;
-  
+
     flex-wrap: nowrap;
     padding: 10px;
     gap: 10px; /* Adjust as needed */
-     
-   }
-  
+  }
 }
-.scrollable-inner{
+.scrollable-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
+
   gap: 10px; /* Adjust as needed */
-}    
-#nav-btn1,#nav-btn2,#nav-btn3,#nav-btn4,#nav-btn5{
- 
+}
+#nav-btn1,
+#nav-btn2,
+#nav-btn3,
+#nav-btn4,
+#nav-btn5 {
   text-align: center;
   align-content: center;
   height: 170px;
   width: 170px;
- text-align: center;
+  text-align: center;
   box-sizing: border-box;
   max-height: 200px;
   max-width: 200px;
   padding-top: 10vh;
-  border-radius:40px 40px 40px 40px;
- 
+  border-radius: 40px 40px 40px 40px;
 
-font-size: 20px;
-font-weight: bold;
-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 
-@media (max-width : 1000px) {
-    
- height: 100px;
- width: 100px;
- padding-top: 25px;
-   
- }
-    
-   
-
+  @media (max-width: 1000px) {
+    height: 100px;
+    width: 100px;
+    padding-top: 25px;
+  }
 }
-#nav-btn1{
-background-image: url('https://cdn.pixabay.com/photo/2017/08/08/00/33/constellations-2609647_1280.jpg');
+#nav-btn1 {
+  background-image: url("https://cdn.pixabay.com/photo/2017/08/08/00/33/constellations-2609647_1280.jpg");
 }
-#nav-btn2{
-  background-image: url('https://cdn.pixabay.com/photo/2020/04/06/16/21/oranges-5010270_640.jpg');
+#nav-btn2 {
+  background-image: url("https://cdn.pixabay.com/photo/2020/04/06/16/21/oranges-5010270_640.jpg");
 }
-#nav-btn3{
-  background-image: url('../../asserts/Medical.png');
+#nav-btn3 {
+  background-image: url("../../asserts/Medical.png");
 }
-#nav-btn4{
-  background-image: url('https://media.istockphoto.com/id/1408387701/photo/social-media-marketing-digitally-generated-image-engagement.webp?b=1&s=612x612&w=0&k=20&c=GZCD21X5437zQJjw40Qnda-pMWLY_x0zzeQSv-rEe_I=');
+#nav-btn4 {
+  background-image: url("https://media.istockphoto.com/id/1408387701/photo/social-media-marketing-digitally-generated-image-engagement.webp?b=1&s=612x612&w=0&k=20&c=GZCD21X5437zQJjw40Qnda-pMWLY_x0zzeQSv-rEe_I=");
 }
-#nav-btn5{
-  background-image: url('https://cdn.pixabay.com/photo/2016/07/05/16/53/leaves-1498985_1280.jpg');
+#nav-btn5 {
+  background-image: url("https://cdn.pixabay.com/photo/2016/07/05/16/53/leaves-1498985_1280.jpg");
 }
-.navigation-btn-group .selected{
+.navigation-btn-group .selected {
   border: 4px solid rgb(35, 172, 240);
 }

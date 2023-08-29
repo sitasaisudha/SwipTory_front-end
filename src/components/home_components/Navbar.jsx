@@ -4,7 +4,7 @@ import { MyContext } from "../../MyContext"; // importing my context to use cont
 import { useContext } from "react"; //using context api
 import { useState } from "react"; // importing use state hook
 import { useNavigate } from "react-router-dom";
-import baseUrl from '.././../constants/Base'
+import baseUrl from ".././../constants/Base";
 import axios from "axios";
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,14 +17,16 @@ const Navbar = () => {
   const { isLogIn, setLogin } = useContext(MyContext);
   const { storyId, setStoryId } = useContext(MyContext);
   const headers = { token: localStorage.getItem("token") };
-  
 
   const handelAddStory = () => {
-
     axios
-      .post(`${baseUrl}/api/addStory`, {
-        user_name: name,
-      } ,  { headers: headers } )
+      .post(
+        `${baseUrl}/api/addStory`,
+        {
+          user_name: name,
+        },
+        { headers: headers }
+      )
       .then((res) => {
         setStoryId(res.data);
       })
@@ -35,8 +37,8 @@ const Navbar = () => {
     <>
       <div className="navigation-bar">
         <p className="nav-head">SwipTory </p>
-      
-        {name  ? (
+
+        {name ? (
           <div className="nav-items">
             <p
               className="nav-btn1"
@@ -44,7 +46,7 @@ const Navbar = () => {
               onClick={() => navigate("/bookmarks")}
             >
               {" "}
-              <i className="ri-bookmark-line"></i>Bookmarks{" "}
+              <i className="ri-bookmark-fill"></i>Bookmarks{" "}
             </p>
 
             <p
@@ -58,7 +60,7 @@ const Navbar = () => {
               {" "}
               Add story{" "}
             </p>
-              
+
             <img />
             <p className="nav-btn-toggle" onClick={() => setLogout(true)}>
               {" "}
@@ -94,7 +96,14 @@ const Navbar = () => {
       </div>
       {logout ? (
         <div className="logout">
-          <p  onClick={()=> {setLogout(false);}} style={{float:'right'}} >X</p>
+          <p
+            onClick={() => {
+              setLogout(false);
+            }}
+            style={{ float: "right" }}
+          >
+            X
+          </p>
           <p> {name} </p>
           <button
             onClick={() => {
@@ -107,8 +116,6 @@ const Navbar = () => {
           >
             Logout
           </button>
-            
-
         </div>
       ) : (
         ""

@@ -9,7 +9,7 @@ import { MyContext } from "../MyContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useMediaQuery } from "react-responsive";
-import baseUrl from '../constants/Base'
+import baseUrl from "../constants/Base";
 
 Modal.setAppElement("#root");
 const showToastSuccessMessage = () => {
@@ -58,7 +58,7 @@ const SlideForm = ({ index, slide, updateSlide }) => {
               </td>
             </tr>
             <br />
-            
+
             <tr>
               <td> Image URL:</td>
               <td>
@@ -88,53 +88,26 @@ const SlideForm = ({ index, slide, updateSlide }) => {
         </table>
       ) : (
         <div className="formic-comp">
-          <label>
-            Heading:
-            </label>
-            <input
-              type="text"
-              name="heading"
-            
-              onChange={handleChange}
-            />
-        
+          <label>Heading:</label>
+          <input type="text" name="heading" onChange={handleChange} />
+
           <br />
-          <label>
-            Description:
-            </label>
-            <textarea
-              name="description"
-            
-              onChange={handleChange}
-            />
-         
+          <label>Description:</label>
+          <textarea name="description" onChange={handleChange} />
+
           <br />
-          <label>
-            Image URL:
-            </label>
-            <input
-              type="text"
-              name="image_url"
-            
-              onChange={handleChange}
-            />
-         
+          <label>Image URL:</label>
+          <input type="text" name="image_url" onChange={handleChange} />
+
           <br />
-          <label>
-            Categories:
-            </label>
-            <select
-              name="categories"
-             
-              onChange={handleChange}
-            >
-              <option value="">Select Category</option>
-              <option value="food">Food</option>
-              <option value="news">News</option>
-              <option value="sports">Sports</option>
-              <option value="sports">Plants</option>
-            </select>
-         
+          <label>Categories:</label>
+          <select name="categories" onChange={handleChange}>
+            <option value="">Select Category</option>
+            <option value="food">Food</option>
+            <option value="news">News</option>
+            <option value="sports">Sports</option>
+            <option value="sports">Plants</option>
+          </select>
         </div>
       )}
     </div>
@@ -204,21 +177,25 @@ const SlideEditor = () => {
 
   const handlePostSlide = () => {
     axios
-      .post(`${baseUrl}/api/addSlide`, {
-        heading: slides[currentSlide].heading,
-        description: slides[currentSlide].description,
-        image_url: slides[currentSlide].image_url,
-        categories: slides[currentSlide].categories,
-        story_id: storyId,
-      } ,
-      { headers: headers }
+      .post(
+        `${baseUrl}/api/addSlide`,
+        {
+          heading: slides[currentSlide].heading,
+          description: slides[currentSlide].description,
+          image_url: slides[currentSlide].image_url,
+          categories: slides[currentSlide].categories,
+          story_id: storyId,
+        },
+        { headers: headers }
       )
       .then((res) => {
         showToastSuccessMessage();
         console.log(res);
       })
-      .catch((err) =>{
-      showToastFillMessage(); console.log(err)});
+      .catch((err) => {
+        showToastFillMessage();
+        console.log(err);
+      });
     console.log(
       "Added a slide:",
       slides[currentSlide].heading,
@@ -239,55 +216,56 @@ const SlideEditor = () => {
       >
         <button
           className="close-button"
-          onClick={()=>{if(postSlideCount <=3){
-            showToastWarningMessage();
-          }else{
-            handleCloseModal()
-          }
-        }}
-        
-        
+          onClick={() => {
+            if (postSlideCount <= 3) {
+              showToastWarningMessage();
+            } else {
+              handleCloseModal();
+            }
+          }}
         >
           <i className="ri-close-circle-line"></i>
         </button>
         <br></br>
         <p className="slide-para">Add up to six slides</p>
         <div className="slide-btn-container">
-             <div className = {`slide-button-group ${slides.length>4 ?'aftr':""}`}>
-          {slides.map((_, index) => (
-          
-            <button
-              key={index}
-              style={{alignContent:'center'}}
-              onClick={() => goToSlide(index)}
-              className={`slide-btns ${activeSlide === index ? "active" : ""}`}
-            >
-              <b>  Slide {index + 1} </b>
-            
-            </button>
-          ))}
-          <button
-            onClick={addSlide}
-            className="slide-btns"
-            disabled={slides.length >= 6}
+          <div
+            className={`slide-button-group ${slides.length > 4 ? "aftr" : ""}`}
           >
-            Add +
-          </button>
-        </div>
-        <div>
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              style={{ display: index === currentSlide ? "block" : "none" }}
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                style={{ alignContent: "center" }}
+                onClick={() => goToSlide(index)}
+                className={`slide-btns ${
+                  activeSlide === index ? "active" : ""
+                }`}
+              >
+                <b> Slide {index + 1} </b>
+              </button>
+            ))}
+            <button
+              onClick={addSlide}
+              className="slide-btns"
+              disabled={slides.length >= 6}
             >
-              <SlideForm
-                index={index}
-                slide={slide}
-                updateSlide={updateSlide}
-              />
-            </div>
-          ))}
-        </div>
+              Add +
+            </button>
+          </div>
+          <div>
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                style={{ display: index === currentSlide ? "block" : "none" }}
+              >
+                <SlideForm
+                  index={index}
+                  slide={slide}
+                  updateSlide={updateSlide}
+                />
+              </div>
+            ))}
+          </div>
         </div>
         {/* <br /> */}
         <div className="form-buttons">

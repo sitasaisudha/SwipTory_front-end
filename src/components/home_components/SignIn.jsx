@@ -8,7 +8,7 @@ import { useState } from "react"; // importing use state hook
 import axios from "axios"; // importing axios
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import baseUrl from '.././../constants/Base'
+import baseUrl from ".././../constants/Base";
 const SignIn = () => {
   const { text, setText } = useContext(MyContext); // used to handel display of popus
   const { isLogIn, setLogin } = useContext(MyContext);
@@ -19,17 +19,20 @@ const SignIn = () => {
     toast.success("Logged in Successfully !", {
       position: toast.POSITION.TOP_CENTER,
     });
-  }; // to show the Login  success toast message
+  };
+  // to show the Login  success toast message
   const showToastFailureMessage = () => {
     toast.error("Invalid Login !", {
       position: toast.POSITION.TOP_CENTER,
-    }); // to show invalid login toast message
+    });
+    // to show invalid login toast message
   };
   const showToastREgisterFailureMessage = () => {
     toast.error("Enter Fields properly !", {
       position: toast.POSITION.TOP_CENTER,
     });
-  };// to show register failure message 
+  };
+  // to show register failure message
   const showToastREgisterSuccessMessage = () => {
     toast.success("REgister  Successfull! !", {
       position: toast.POSITION.TOP_CENTER,

@@ -1,109 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;500&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap');
-.modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    font-family: 'DM Sans';
-   margin-bottom: 0;
-   z-index: 9999;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;500&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap");
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  font-family: "DM Sans";
+  margin-bottom: 0;
+  z-index: 9999;
 }
-.SignIn-body{
-    background-color: #ffff;
-    display: flex;
+.SignIn-body {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0% 3%;
+  margin: 3%;
+  border-radius: 3%;
+  width: 25%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  @media (max-width: 1000px) {
+    width: auto;
+    border-radius: 2vh;
+  }
+}
+.float-into-icon {
+  text-align: right;
+  color: red;
+  font-size: 3vh;
+}
+.heading {
+  font-size: 3vh;
+  font-weight: bold;
+  text-align: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.form .form-item {
+  display: flex;
+  flex-direction: row;
+  padding: 3% 4%;
+  justify-content: space-between;
+  @media (max-width: 1000px) {
     flex-direction: column;
-    justify-content: space-around;
-    padding: 0% 3%;
-    margin: 3%;
-    border-radius: 3%;
-    width: 25%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    @media (max-width : 1000px) {
-    
-        width: auto;
-        border-radius: 2vh;
-     }
+    margin: 2vh;
+  }
 }
-.float-into-icon{
-    text-align: right;
-    color: red;
-    font-size: 3vh;
-}
-.heading{
-    font-size: 3vh;
-    font-weight: bold;
+.user-field-label {
+  font-size: 2.5vh;
+  font-weight: bold;
+  @media (max-width: 1000px) {
     text-align: center;
+    margin-bottom: 1vh;
+  }
 }
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-   
-   
+.input {
+  padding: 3% 5%;
+  @media (max-width: 1000px) {
+    padding: 5% 3%;
+  }
 }
-.form .form-item{
-    display: flex;
-    flex-direction: row;
-    padding:3% 4%;
-    justify-content: space-between;
-    @media (max-width : 1000px) {
-    
-       flex-direction: column;
-       margin: 2vh;
-    }
+.link-button {
+  border: none;
+  background: none;
+  color: blue;
 }
-.user-field-label{
-    font-size: 2.5vh;  
-    font-weight:bold;  
-    @media (max-width : 1000px) {
-    
-       
-        text-align: center;
-        margin-bottom: 1vh;
-     }
-}
-.input{
-  
-    padding: 3% 5%;
-    @media (max-width : 1000px) {
-    
-        padding: 5% 3%;
-       
-       
-     }
-   
-}
-.link-button{
-    border: none;
-    background: none;
-    color: blue;
-}
-.form-button{
-   margin:0vh 20vh;
-   padding: 3% 7%;
-   border-radius: 5vh;
-   background-color: #73ABFF;
-   border: none;
-   font-weight:bold;
-   @media (max-width : 1000px) {
-    
+.form-button {
+  margin: 0vh 20vh;
+  padding: 3% 7%;
+  border-radius: 5vh;
+  background-color: #73abff;
+  border: none;
+  font-weight: bold;
+  @media (max-width: 1000px) {
     margin: 1vh 9vh;
-   height: 50px;
-   width: 150px;
-   
- }
+    height: 50px;
+    width: 150px;
+  }
 }
-.error-msg{
-    color: red;
-    text-align: center;
+.error-msg {
+  color: red;
+  text-align: center;
 }
-.para{
-    text-align: center;
+.para {
+  text-align: center;
 }

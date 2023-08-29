@@ -9,7 +9,6 @@ import { MyContext } from "../../MyContext";
 import { useContext } from "react";
 import baseUrl from ".././../constants/Base";
 
-
 Modal.setAppElement("#root");
 
 const Your_stories = () => {
@@ -26,7 +25,7 @@ const Your_stories = () => {
   const [share, setShare] = useState(false);
 
   useEffect(() => {
-    // to fetch the your stories 
+    // to fetch the your stories
     axios
       .get(`${baseUrl}/api/yourStories/?name=${name}`, { headers: headers })
       .then((res) => {
@@ -43,7 +42,9 @@ const Your_stories = () => {
       const slidesData = {};
       for (const story of your_stories) {
         try {
-          const res = await axios.get(`${baseUrl}/api/slide?id=${story._id}`, { headers: headers });
+          const res = await axios.get(`${baseUrl}/api/slide?id=${story._id}`, {
+            headers: headers,
+          });
           slidesData[story._id] = res.data;
         } catch (err) {
           console.log(`Error fetching slides for story_id ${story._id}:`, err);
@@ -60,8 +61,6 @@ const Your_stories = () => {
     return <div>Error: {error}</div>;
   }
 
- 
-
   return (
     <div className="your_stories">
       {Object.entries(slidesData).map(([storyId, slides], index) => (
@@ -74,11 +73,13 @@ const Your_stories = () => {
             className="your-carousel-wrapper"
           >
             {slides.map((slide) => (
-              <div key={slide._id} className="your-slide-wrapper" 
-              onClick={() => {
-                setSelectedStorySlides(slides); // Set selected story's slides
-                setModalOpen(true); // Open the modal
-              }}
+              <div
+                key={slide._id}
+                className="your-slide-wrapper"
+                onClick={() => {
+                  setSelectedStorySlides(slides); // Set selected story's slides
+                  setModalOpen(true); // Open the modal
+                }}
               >
                 <img src={slide.image_url} alt={slide.heading} />
                 <div className="your-slide-content">
@@ -139,41 +140,42 @@ const Your_stories = () => {
         >
           {selectedStorySlides.map((slide) => (
             <div key={slide._id} className="modal-your-slide-wrapper">
-                <div className="slide-top-content">
-              <button className="close-buttons" onClick={()=>setModalOpen(false)}>
-                x
-              </button>
-              <button
-                className="send-buttons"
-                onClick={() => {
-                  setShare(true);
-                }}
-              >
-                <i className="ri-send-plane-fill"></i>
-              </button>
-            </div>
+              <div className="slide-top-content">
+                <button
+                  className="close-buttons"
+                  onClick={() => setModalOpen(false)}
+                >
+                  x
+                </button>
+                <button
+                  className="send-buttons"
+                  onClick={() => {
+                    setShare(true);
+                  }}
+                >
+                  <i className="ri-send-plane-fill"></i>
+                </button>
+              </div>
               <img src={slide.image_url} alt={slide.heading} />
-                <div className="your-slide-content">
-                  
-                  <h3>{slide.heading}</h3>
-                  <p>{slide.description}</p>
-                  {share ? (
-                <div className="share-btn"> Link copied to Clipboard </div>
-              ) : (
-                ""
-              )}
-                  <button
-                    className="edit-btn"
-                    onClick={() => {
-                      setEditModalIsOpen(true);
-                      setEdit_id(slide.story_id);
-                    }}
-                  >
-                     <i className="ri-edit-2-line"></i>
-                    Edit
-                  </button>
-                </div>
-               
+              <div className="your-slide-content">
+                <h3>{slide.heading}</h3>
+                <p>{slide.description}</p>
+                {share ? (
+                  <div className="share-btn"> Link copied to Clipboard </div>
+                ) : (
+                  ""
+                )}
+                <button
+                  className="edit-btn"
+                  onClick={() => {
+                    setEditModalIsOpen(true);
+                    setEdit_id(slide.story_id);
+                  }}
+                >
+                  <i className="ri-edit-2-line"></i>
+                  Edit
+                </button>
+              </div>
             </div>
           ))}
         </Carousel>

@@ -1,28 +1,21 @@
 .slide-container {
- 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0px; /* Adjust the gap between stories */
   justify-items: center;
   row-gap: 5vh;
- 
-  
-    @media (max-width : 1000px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      /* margin-lef: 50%; */
-    }
- 
 
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-lef: 50%; */
+  }
 }
-
-
 
 .carousel-wrapper {
   margin: 10px;
-
 }
 
 .custom-carousel {
@@ -30,56 +23,42 @@
   height: auto;
   /* margin-right: 100px; */
   /* background-color: gray; */
- 
- background-color: white;
-  @media (max-width : 1000px) {
-   border:1px solid black;
+
+  background-color: white;
+  @media (max-width: 1000px) {
+    border: 1px solid black;
     width: 300px;
     height: 500px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 30px ;
-    
-    
+    margin-bottom: 30px;
   }
-  
 }
 .custom-carousel .control-arrow {
   display: none;
 }
 
-
-
-
-
-
 .mod-slide-wrapper {
   position: relative;
   height: 90vh;
   width: 20vw;
- 
-  cursor: pointer;
-  border:1px solid black;
-  
-  @media (max-width : 1000px) {
-    border:1px solid black;
-   
-      width: 300px;
-     height: 500px;
-     
-   }
 
+  cursor: pointer;
+  border: 1px solid black;
+
+  @media (max-width: 1000px) {
+    border: 1px solid black;
+
+    width: 300px;
+    height: 500px;
+  }
 }
 
-
 .mod-slide-wrapper img {
- 
   width: 100%;
   height: 100%;
   /* object-fit: cover; */
 }
-
-
 
 .slide-overlay {
   position: absolute;
@@ -89,7 +68,6 @@
   padding: 10px;
   background-color: white;
   color: white;
- 
 }
 
 .slide-overlay h3,
@@ -106,13 +84,12 @@
   background-color: white;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.3) 2px 8px 8px 8px;
-  @media (max-width : 1000px) {
-    border:1px solid black;
-   
-      width: 300px;
-     height: 500px;
-     
-   }
+  @media (max-width: 1000px) {
+    border: 1px solid black;
+
+    width: 300px;
+    height: 500px;
+  }
 }
 
 .slide-modal-overlay {
@@ -132,17 +109,12 @@
   height: 500px; */
   height: 90vh;
   width: 20vw;
-  @media (max-width : 600px) {
-   
+  @media (max-width: 600px) {
     width: 400px;
-     
-   }
-
+  }
 }
 
-
-
-.modal-carousel .control-arrow{
+.modal-carousel .control-arrow {
   display: none;
 }
 
@@ -159,18 +131,15 @@
   padding: 20px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
-  @media (max-width : 1000px) {
-    border:1px solid black;
-   
-      width: 300px;
-    
-     
-   }
+  @media (max-width: 1000px) {
+    border: 1px solid black;
 
+    width: 300px;
+  }
 }
 .slide-top-content {
   position: absolute;
-  top:0;
+  top: 0;
   right: 0;
   width: 100%;
   display: flex;
@@ -182,22 +151,18 @@
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.slide-top-content .close-buttons{
-  float: right ;
+.slide-top-content .close-buttons {
+  float: right;
   width: 5px;
   height: 10px;
   background: none;
   border: none;
   /* color: red; */
-
-
 }
-.slide-top-content .send-buttons{
+.slide-top-content .send-buttons {
   background: none;
   border: none;
 }
-
-
 
 .slide-content h3,
 .slide-content p {
@@ -213,32 +178,28 @@
   font-size: 16px;
 }
 
-.carousel-indicator.active{
+.carousel-indicator.active {
   background-color: white;
 }
-.carousel-indicator{
+.carousel-indicator {
   justify-content: center;
-
- }
-.bkmk-lk{
+}
+.bkmk-lk {
   display: flex;
   justify-content: space-between;
-  
-
 }
-.bkmk-lk button{
+.bkmk-lk button {
   background: none;
   border: none;
   font-size: 20px;
 }
-.bookmark-button{
+.bookmark-button {
   float: left;
 }
-.bookmark-button.filled{
+.bookmark-button.filled {
   color: blue;
-
 }
-.ri-heart-fill{
+.ri-heart-fill {
   color: red;
 }
 .carousel-arrow {
@@ -248,9 +209,9 @@
   transform: translateY(-50%);
   width: 30px;
   height: 30px;
- 
+
   border: none;
-  border-radius: 50%; 
+  border-radius: 50%;
   /* cursor: pointer; */
   display: flex;
   align-items: center;
@@ -264,99 +225,82 @@
 }
 .carousel-arrow-prev {
   left: 35%;
-  @media (max-width : 1000px) {
+  @media (max-width: 1000px) {
     left: 10px;
-     
-     
-   }
-   @media (max-width : 600px) {
+  }
+  @media (max-width: 600px) {
     left: 10px;
-     
-     
-   }
-
- 
+  }
 }
 
 .carousel-arrow-next {
   right: 35%;
-  @media (max-width : 1000px) {
+  @media (max-width: 1000px) {
     right: 20px;
-     
-     
-   }
+  }
 
   /* bottom: 50px; */
 }
-.share-btn{
+.share-btn {
   background-color: red;
   color: white;
   border-radius: 15px;
 }
-.slide-top-content button,i{
+.slide-top-content button,
+i {
   font-size: 20px;
 }
 
-.show-more-button{
+.show-more-button {
   height: 50px;
   width: 150px;
-  background-color: #FF7373;
+  background-color: #ff7373;
   margin-top: 0;
- 
- 
 }
 
-
-.custom-indicators-container{
-  
+.custom-indicators-container {
   display: flex;
   width: 100%;
-  
+
   justify-content: center;
   /* background-color: #FF7373; */
   justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.custom-indicators-container .custom-indicator{
+.custom-indicators-container .custom-indicator {
   width: 50%;
- 
+
   transition: 0.3s;
   cursor: pointer;
-  margin-right:2px ;
-
+  margin-right: 2px;
 }
-.custom-indicators-container .active{
+.custom-indicators-container .active {
   background-color: white;
 }
 
 .home-slide-wrapper img {
- 
   width: 100%;
   height: 100%;
-  @media (max-width : 1000px) {
-    border:1px solid black;
-   
-      width: 300px;
-     height: 500px;
-     
-   }
+  @media (max-width: 1000px) {
+    border: 1px solid black;
 
-  
+    width: 300px;
+    height: 500px;
+  }
+
   /* object-fit: cover; */
 }
 .home-slide-wrapper {
   position: relative;
   height: 70vh;
   width: 20vw;
- 
-  cursor: pointer;
-  border:1px solid black;
-  @media (max-width : 1000px) {
-    border:1px solid black;
-   
-      width: 300px;
-     height: 500px;
-     
-   }
 
+  cursor: pointer;
+  border: 1px solid black;
+  @media (max-width: 1000px) {
+    border: 1px solid black;
+
+    width: 300px;
+    height: 500px;
+  }
 }
